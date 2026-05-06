@@ -1,0 +1,36 @@
+# Credentials and secrets
+.env
+*.env
+
+# Database data directories
+postgres_data/
+mysql_data/
+db/
+grafana_data/
+prometheus_data/
+portainer_data/
+
+# Backup dumps and logs
+dumps/
+*.sql
+*.log
+
+# WireGuard (never expose VPN keys)
+wg0.conf
+wg0.json
+*.conf
+*.key
+
+# SSL certificates
+letsencrypt/
+*.pem
+*.crt
+*.key
+
+# Media and user uploads
+media/
+data/
+
+# OS
+.DS_Store
+Thumbs.db
