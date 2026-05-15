@@ -21,7 +21,7 @@ These are applications I built and deployed myself, not tutorials or forks:
 | Project | Stack | Description |
 |---|---|---|
 | bombas-iot | Django · PostgreSQL · MQTT · Nginx | IoT monitoring system for water pumps. Reads sensor data via MQTT, stores it in PostgreSQL, exposes a Django web interface. Fully containerized with Docker. |
-| clinica-solaz | Django · PostgreSQL · Nginx | Clinic management app — patient records and appointments. Fully containerized with Docker. |
+| clinic-manager | Django · PostgreSQL · Nginx | Healthcare management system for a physiotherapy clinic — patient records and appointments. Running in production, publicly accessible over HTTPS, hosted on the homelab server. | 
 | cv-web | Custom | Personal CV — [jmarroyo.es](https://www.jmarroyo.es) |
 | django-cicd | Django · GitHub Actions | CI/CD learning project — auto-deploys to the Pi on every push. |
 
@@ -81,7 +81,7 @@ All persistent data lives under `/srv/docker/<project>/` as bind mounts. This ma
     ├── bombas-iot/
     │   ├── app/
     │   └── postgres_data/    ← PostgreSQL data
-    ├── clinica-solaz/
+    ├── clinic-manager/
     │   ├── backend/
     │   ├── postgres_data/
     │   ├── static/
@@ -108,7 +108,7 @@ Automated daily pipeline — no manual steps required:
 
 ```
 02:00 AM  cron → pre-backup.sh
-              ├── pg_dump   clinica-solaz  → integrity check → /srv/backups/dumps/
+              ├── pg_dump   clinic-manager  → integrity check → /srv/backups/dumps/
               ├── pg_dump   bombas-iot     → integrity check → /srv/backups/dumps/
               ├── pg_dump   wikijs         → integrity check → /srv/backups/dumps/
               ├── mysqldump nextcloud      → integrity check → /srv/backups/dumps/

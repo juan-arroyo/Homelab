@@ -6,7 +6,7 @@ Automated daily backup pipeline for all databases running in the homelab.
 
 ```
 02:00 AM  cron → pre-backup.sh
-              ├── pg_dump   clinica-solaz  → integrity check → /srv/backups/dumps/
+              ├── pg_dump   clinic-manager  → integrity check → /srv/backups/dumps/
               ├── pg_dump   bombas-iot     → integrity check → /srv/backups/dumps/
               ├── pg_dump   wikijs         → integrity check → /srv/backups/dumps/
               ├── mysqldump nextcloud      → integrity check → /srv/backups/dumps/

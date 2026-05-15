@@ -46,12 +46,12 @@ verify_dump() {
 # Create dumps directory if it doesn't exist
 mkdir -p $DUMPS_DIR
  
-# --- CLINICA SOLAZ (PostgreSQL 16) ---
-echo "Dumping clinica-solaz..."
-source /srv/docker/clinica-solaz/.env
-docker exec clinica-solaz-db-1 pg_dump -U $POSTGRES_USER $POSTGRES_DB > $DUMPS_DIR/clinica-solaz_$DATE.sql \
-  && verify_dump $DUMPS_DIR/clinica-solaz_$DATE.sql "clinica-solaz" \
-  || { echo "ERROR: clinica-solaz dump failed"; telegram_notify "❌ ERROR [clinica-solaz] Dump failed: $(date '+%d/%m/%Y %H:%M')"; ERRORS=$((ERRORS+1)); }
+# --- CLINIC MANAGER (PostgreSQL 16) ---
+echo "Dumping clinic-manager..."
+source /srv/docker/clinic-manager/.env
+docker exec clinic-manager-db pg_dump -U $POSTGRES_USER $POSTGRES_DB > $DUMPS_DIR/clinic-manager_$DATE.sql \
+  && verify_dump $DUMPS_DIR/clinic-manager_$DATE.sql "clinic-manager" \
+  || { echo "ERROR: clinic-manager dump failed"; telegram_notify "❌ ERROR [clinic-manager] Dump failed: $(date '+%d/%m/%Y %H:%M')"; ERRORS=$((ERRORS+1)); }
  
 # --- BOMBAS IOT (PostgreSQL 16 Alpine) ---
 echo "Dumping bombas-iot..."
