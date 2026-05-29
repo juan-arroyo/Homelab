@@ -4,6 +4,8 @@ Personal homelab running on a **Raspberry Pi 5** — 25+ Docker containers servi
 
 All services run at `*.jmarroyo.es` · Personal site: [jmarroyo.es](https://www.jmarroyo.es)
 
+![Dashboard](docs/homelab-dashboard.png)
+
 ---
 
 ## About
